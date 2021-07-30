@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class GetInventoryItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -199,11 +199,11 @@ class GetInventoryItemResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = $data['errors'] ?? null;
-        $this->container['inventory_item'] = $data['inventory_item'] ?? null;
-        $this->container['sku'] = $data['sku'] ?? null;
-        $this->container['status_code'] = $data['status_code'] ?? null;
-        $this->container['warnings'] = $data['warnings'] ?? null;
+        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['inventory_item'] = isset($data['inventory_item']) ? $data['inventory_item'] : null;
+        $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
+        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
     }
 
     /**
@@ -370,7 +370,7 @@ class GetInventoryItemResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

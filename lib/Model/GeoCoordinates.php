@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class GeoCoordinates implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class GeoCoordinates implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['latitude'] = $data['latitude'] ?? null;
-        $this->container['longitude'] = $data['longitude'] ?? null;
+        $this->container['latitude'] = isset($data['latitude']) ? $data['latitude'] : null;
+        $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class GeoCoordinates implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

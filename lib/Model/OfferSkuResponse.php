@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class OfferSkuResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -209,13 +209,13 @@ class OfferSkuResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = $data['errors'] ?? null;
-        $this->container['format'] = $data['format'] ?? null;
-        $this->container['marketplace_id'] = $data['marketplace_id'] ?? null;
-        $this->container['offer_id'] = $data['offer_id'] ?? null;
-        $this->container['sku'] = $data['sku'] ?? null;
-        $this->container['status_code'] = $data['status_code'] ?? null;
-        $this->container['warnings'] = $data['warnings'] ?? null;
+        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
+        $this->container['marketplace_id'] = isset($data['marketplace_id']) ? $data['marketplace_id'] : null;
+        $this->container['offer_id'] = isset($data['offer_id']) ? $data['offer_id'] : null;
+        $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
+        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
     }
 
     /**
@@ -430,7 +430,7 @@ class OfferSkuResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

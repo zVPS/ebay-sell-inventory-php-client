@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class PricingSummary implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -209,13 +209,13 @@ class PricingSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['auction_reserve_price'] = $data['auction_reserve_price'] ?? null;
-        $this->container['auction_start_price'] = $data['auction_start_price'] ?? null;
-        $this->container['minimum_advertised_price'] = $data['minimum_advertised_price'] ?? null;
-        $this->container['originally_sold_for_retail_price_on'] = $data['originally_sold_for_retail_price_on'] ?? null;
-        $this->container['original_retail_price'] = $data['original_retail_price'] ?? null;
-        $this->container['price'] = $data['price'] ?? null;
-        $this->container['pricing_visibility'] = $data['pricing_visibility'] ?? null;
+        $this->container['auction_reserve_price'] = isset($data['auction_reserve_price']) ? $data['auction_reserve_price'] : null;
+        $this->container['auction_start_price'] = isset($data['auction_start_price']) ? $data['auction_start_price'] : null;
+        $this->container['minimum_advertised_price'] = isset($data['minimum_advertised_price']) ? $data['minimum_advertised_price'] : null;
+        $this->container['originally_sold_for_retail_price_on'] = isset($data['originally_sold_for_retail_price_on']) ? $data['originally_sold_for_retail_price_on'] : null;
+        $this->container['original_retail_price'] = isset($data['original_retail_price']) ? $data['original_retail_price'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['pricing_visibility'] = isset($data['pricing_visibility']) ? $data['pricing_visibility'] : null;
     }
 
     /**
@@ -430,7 +430,7 @@ class PricingSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

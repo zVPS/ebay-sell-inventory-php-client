@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class BulkPriceQuantityResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -179,7 +179,7 @@ class BulkPriceQuantityResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->container['responses'] = $data['responses'] ?? null;
+        $this->container['responses'] = isset($data['responses']) ? $data['responses'] : null;
     }
 
     /**
@@ -250,7 +250,7 @@ class BulkPriceQuantityResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

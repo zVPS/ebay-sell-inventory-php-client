@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class ProductFamilyProperties implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -199,11 +199,11 @@ class ProductFamilyProperties implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->container['engine'] = $data['engine'] ?? null;
-        $this->container['make'] = $data['make'] ?? null;
-        $this->container['model'] = $data['model'] ?? null;
-        $this->container['trim'] = $data['trim'] ?? null;
-        $this->container['year'] = $data['year'] ?? null;
+        $this->container['engine'] = isset($data['engine']) ? $data['engine'] : null;
+        $this->container['make'] = isset($data['make']) ? $data['make'] : null;
+        $this->container['model'] = isset($data['model']) ? $data['model'] : null;
+        $this->container['trim'] = isset($data['trim']) ? $data['trim'] : null;
+        $this->container['year'] = isset($data['year']) ? $data['year'] : null;
     }
 
     /**
@@ -370,7 +370,7 @@ class ProductFamilyProperties implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

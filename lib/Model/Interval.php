@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class Interval implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class Interval implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['close'] = $data['close'] ?? null;
-        $this->container['open'] = $data['open'] ?? null;
+        $this->container['close'] = isset($data['close']) ? $data['close'] : null;
+        $this->container['open'] = isset($data['open']) ? $data['open'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class Interval implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

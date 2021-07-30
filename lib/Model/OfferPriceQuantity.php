@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class OfferPriceQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class OfferPriceQuantity implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['available_quantity'] = $data['available_quantity'] ?? null;
-        $this->container['offer_id'] = $data['offer_id'] ?? null;
-        $this->container['price'] = $data['price'] ?? null;
+        $this->container['available_quantity'] = isset($data['available_quantity']) ? $data['available_quantity'] : null;
+        $this->container['offer_id'] = isset($data['offer_id']) ? $data['offer_id'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class OfferPriceQuantity implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

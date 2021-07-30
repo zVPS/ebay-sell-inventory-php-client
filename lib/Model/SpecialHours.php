@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class SpecialHours implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class SpecialHours implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['date'] = $data['date'] ?? null;
-        $this->container['intervals'] = $data['intervals'] ?? null;
+        $this->container['date'] = isset($data['date']) ? $data['date'] : null;
+        $this->container['intervals'] = isset($data['intervals']) ? $data['intervals'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class SpecialHours implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

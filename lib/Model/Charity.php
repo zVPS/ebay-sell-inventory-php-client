@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class Charity implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class Charity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['charity_id'] = $data['charity_id'] ?? null;
-        $this->container['donation_percentage'] = $data['donation_percentage'] ?? null;
+        $this->container['charity_id'] = isset($data['charity_id']) ? $data['charity_id'] : null;
+        $this->container['donation_percentage'] = isset($data['donation_percentage']) ? $data['donation_percentage'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class Charity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class Availability implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class Availability implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['pickup_at_location_availability'] = $data['pickup_at_location_availability'] ?? null;
-        $this->container['ship_to_location_availability'] = $data['ship_to_location_availability'] ?? null;
+        $this->container['pickup_at_location_availability'] = isset($data['pickup_at_location_availability']) ? $data['pickup_at_location_availability'] : null;
+        $this->container['ship_to_location_availability'] = isset($data['ship_to_location_availability']) ? $data['ship_to_location_availability'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class Availability implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

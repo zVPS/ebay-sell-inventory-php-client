@@ -44,7 +44,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class InventoryItemWithSkuLocaleGroupid implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -218,15 +218,15 @@ class InventoryItemWithSkuLocaleGroupid implements ModelInterface, ArrayAccess, 
      */
     public function __construct(array $data = null)
     {
-        $this->container['availability'] = $data['availability'] ?? null;
-        $this->container['condition'] = $data['condition'] ?? null;
-        $this->container['condition_description'] = $data['condition_description'] ?? null;
-        $this->container['group_ids'] = $data['group_ids'] ?? null;
-        $this->container['inventory_item_group_keys'] = $data['inventory_item_group_keys'] ?? null;
-        $this->container['locale'] = $data['locale'] ?? null;
-        $this->container['package_weight_and_size'] = $data['package_weight_and_size'] ?? null;
-        $this->container['product'] = $data['product'] ?? null;
-        $this->container['sku'] = $data['sku'] ?? null;
+        $this->container['availability'] = isset($data['availability']) ? $data['availability'] : null;
+        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
+        $this->container['condition_description'] = isset($data['condition_description']) ? $data['condition_description'] : null;
+        $this->container['group_ids'] = isset($data['group_ids']) ? $data['group_ids'] : null;
+        $this->container['inventory_item_group_keys'] = isset($data['inventory_item_group_keys']) ? $data['inventory_item_group_keys'] : null;
+        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
+        $this->container['package_weight_and_size'] = isset($data['package_weight_and_size']) ? $data['package_weight_and_size'] : null;
+        $this->container['product'] = isset($data['product']) ? $data['product'] : null;
+        $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
     }
 
     /**
@@ -489,7 +489,7 @@ class InventoryItemWithSkuLocaleGroupid implements ModelInterface, ArrayAccess, 
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

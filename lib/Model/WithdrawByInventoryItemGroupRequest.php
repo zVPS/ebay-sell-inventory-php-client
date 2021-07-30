@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class WithdrawByInventoryItemGroupRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class WithdrawByInventoryItemGroupRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['inventory_item_group_key'] = $data['inventory_item_group_key'] ?? null;
-        $this->container['marketplace_id'] = $data['marketplace_id'] ?? null;
+        $this->container['inventory_item_group_key'] = isset($data['inventory_item_group_key']) ? $data['inventory_item_group_key'] : null;
+        $this->container['marketplace_id'] = isset($data['marketplace_id']) ? $data['marketplace_id'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class WithdrawByInventoryItemGroupRequest implements ModelInterface, ArrayAccess
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

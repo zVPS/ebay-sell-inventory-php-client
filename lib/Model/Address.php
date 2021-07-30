@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class Address implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -209,13 +209,13 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['address_line1'] = $data['address_line1'] ?? null;
-        $this->container['address_line2'] = $data['address_line2'] ?? null;
-        $this->container['city'] = $data['city'] ?? null;
-        $this->container['country'] = $data['country'] ?? null;
-        $this->container['county'] = $data['county'] ?? null;
-        $this->container['postal_code'] = $data['postal_code'] ?? null;
-        $this->container['state_or_province'] = $data['state_or_province'] ?? null;
+        $this->container['address_line1'] = isset($data['address_line1']) ? $data['address_line1'] : null;
+        $this->container['address_line2'] = isset($data['address_line2']) ? $data['address_line2'] : null;
+        $this->container['city'] = isset($data['city']) ? $data['city'] : null;
+        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
+        $this->container['county'] = isset($data['county']) ? $data['county'] : null;
+        $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
+        $this->container['state_or_province'] = isset($data['state_or_province']) ? $data['state_or_province'] : null;
     }
 
     /**
@@ -430,7 +430,7 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class EbayOfferDetailsWithId implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -254,22 +254,22 @@ class EbayOfferDetailsWithId implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['available_quantity'] = $data['available_quantity'] ?? null;
-        $this->container['category_id'] = $data['category_id'] ?? null;
-        $this->container['charity'] = $data['charity'] ?? null;
-        $this->container['hide_buyer_details'] = $data['hide_buyer_details'] ?? null;
-        $this->container['include_catalog_product_details'] = $data['include_catalog_product_details'] ?? null;
-        $this->container['listing_description'] = $data['listing_description'] ?? null;
-        $this->container['listing_duration'] = $data['listing_duration'] ?? null;
-        $this->container['listing_policies'] = $data['listing_policies'] ?? null;
-        $this->container['listing_start_date'] = $data['listing_start_date'] ?? null;
-        $this->container['lot_size'] = $data['lot_size'] ?? null;
-        $this->container['merchant_location_key'] = $data['merchant_location_key'] ?? null;
-        $this->container['pricing_summary'] = $data['pricing_summary'] ?? null;
-        $this->container['quantity_limit_per_buyer'] = $data['quantity_limit_per_buyer'] ?? null;
-        $this->container['secondary_category_id'] = $data['secondary_category_id'] ?? null;
-        $this->container['store_category_names'] = $data['store_category_names'] ?? null;
-        $this->container['tax'] = $data['tax'] ?? null;
+        $this->container['available_quantity'] = isset($data['available_quantity']) ? $data['available_quantity'] : null;
+        $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
+        $this->container['charity'] = isset($data['charity']) ? $data['charity'] : null;
+        $this->container['hide_buyer_details'] = isset($data['hide_buyer_details']) ? $data['hide_buyer_details'] : null;
+        $this->container['include_catalog_product_details'] = isset($data['include_catalog_product_details']) ? $data['include_catalog_product_details'] : null;
+        $this->container['listing_description'] = isset($data['listing_description']) ? $data['listing_description'] : null;
+        $this->container['listing_duration'] = isset($data['listing_duration']) ? $data['listing_duration'] : null;
+        $this->container['listing_policies'] = isset($data['listing_policies']) ? $data['listing_policies'] : null;
+        $this->container['listing_start_date'] = isset($data['listing_start_date']) ? $data['listing_start_date'] : null;
+        $this->container['lot_size'] = isset($data['lot_size']) ? $data['lot_size'] : null;
+        $this->container['merchant_location_key'] = isset($data['merchant_location_key']) ? $data['merchant_location_key'] : null;
+        $this->container['pricing_summary'] = isset($data['pricing_summary']) ? $data['pricing_summary'] : null;
+        $this->container['quantity_limit_per_buyer'] = isset($data['quantity_limit_per_buyer']) ? $data['quantity_limit_per_buyer'] : null;
+        $this->container['secondary_category_id'] = isset($data['secondary_category_id']) ? $data['secondary_category_id'] : null;
+        $this->container['store_category_names'] = isset($data['store_category_names']) ? $data['store_category_names'] : null;
+        $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
     }
 
     /**
@@ -700,7 +700,7 @@ class EbayOfferDetailsWithId implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

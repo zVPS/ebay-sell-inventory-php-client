@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class InventoryItemGroup implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -219,15 +219,15 @@ class InventoryItemGroup implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['aspects'] = $data['aspects'] ?? null;
-        $this->container['description'] = $data['description'] ?? null;
-        $this->container['image_urls'] = $data['image_urls'] ?? null;
-        $this->container['inventory_item_group_key'] = $data['inventory_item_group_key'] ?? null;
-        $this->container['subtitle'] = $data['subtitle'] ?? null;
-        $this->container['title'] = $data['title'] ?? null;
-        $this->container['variant_skus'] = $data['variant_skus'] ?? null;
-        $this->container['varies_by'] = $data['varies_by'] ?? null;
-        $this->container['video_ids'] = $data['video_ids'] ?? null;
+        $this->container['aspects'] = isset($data['aspects']) ? $data['aspects'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['image_urls'] = isset($data['image_urls']) ? $data['image_urls'] : null;
+        $this->container['inventory_item_group_key'] = isset($data['inventory_item_group_key']) ? $data['inventory_item_group_key'] : null;
+        $this->container['subtitle'] = isset($data['subtitle']) ? $data['subtitle'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['variant_skus'] = isset($data['variant_skus']) ? $data['variant_skus'] : null;
+        $this->container['varies_by'] = isset($data['varies_by']) ? $data['varies_by'] : null;
+        $this->container['video_ids'] = isset($data['video_ids']) ? $data['video_ids'] : null;
     }
 
     /**
@@ -490,7 +490,7 @@ class InventoryItemGroup implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

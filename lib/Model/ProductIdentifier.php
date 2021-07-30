@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class ProductIdentifier implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class ProductIdentifier implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['epid'] = $data['epid'] ?? null;
-        $this->container['gtin'] = $data['gtin'] ?? null;
-        $this->container['ktype'] = $data['ktype'] ?? null;
+        $this->container['epid'] = isset($data['epid']) ? $data['epid'] : null;
+        $this->container['gtin'] = isset($data['gtin']) ? $data['gtin'] : null;
+        $this->container['ktype'] = isset($data['ktype']) ? $data['ktype'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class ProductIdentifier implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

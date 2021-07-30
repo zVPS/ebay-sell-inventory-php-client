@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class InventoryItemListing implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class InventoryItemListing implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['offer_id'] = $data['offer_id'] ?? null;
-        $this->container['sku'] = $data['sku'] ?? null;
+        $this->container['offer_id'] = isset($data['offer_id']) ? $data['offer_id'] : null;
+        $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class InventoryItemListing implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

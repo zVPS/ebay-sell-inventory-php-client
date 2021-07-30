@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class InventoryLocationResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -229,17 +229,17 @@ class InventoryLocationResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->container['location'] = $data['location'] ?? null;
-        $this->container['location_additional_information'] = $data['location_additional_information'] ?? null;
-        $this->container['location_instructions'] = $data['location_instructions'] ?? null;
-        $this->container['location_types'] = $data['location_types'] ?? null;
-        $this->container['location_web_url'] = $data['location_web_url'] ?? null;
-        $this->container['merchant_location_key'] = $data['merchant_location_key'] ?? null;
-        $this->container['merchant_location_status'] = $data['merchant_location_status'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['operating_hours'] = $data['operating_hours'] ?? null;
-        $this->container['phone'] = $data['phone'] ?? null;
-        $this->container['special_hours'] = $data['special_hours'] ?? null;
+        $this->container['location'] = isset($data['location']) ? $data['location'] : null;
+        $this->container['location_additional_information'] = isset($data['location_additional_information']) ? $data['location_additional_information'] : null;
+        $this->container['location_instructions'] = isset($data['location_instructions']) ? $data['location_instructions'] : null;
+        $this->container['location_types'] = isset($data['location_types']) ? $data['location_types'] : null;
+        $this->container['location_web_url'] = isset($data['location_web_url']) ? $data['location_web_url'] : null;
+        $this->container['merchant_location_key'] = isset($data['merchant_location_key']) ? $data['merchant_location_key'] : null;
+        $this->container['merchant_location_status'] = isset($data['merchant_location_status']) ? $data['merchant_location_status'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['operating_hours'] = isset($data['operating_hours']) ? $data['operating_hours'] : null;
+        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
+        $this->container['special_hours'] = isset($data['special_hours']) ? $data['special_hours'] : null;
     }
 
     /**
@@ -550,7 +550,7 @@ class InventoryLocationResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class Error implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -219,15 +219,15 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['category'] = $data['category'] ?? null;
-        $this->container['domain'] = $data['domain'] ?? null;
-        $this->container['error_id'] = $data['error_id'] ?? null;
-        $this->container['input_ref_ids'] = $data['input_ref_ids'] ?? null;
-        $this->container['long_message'] = $data['long_message'] ?? null;
-        $this->container['message'] = $data['message'] ?? null;
-        $this->container['output_ref_ids'] = $data['output_ref_ids'] ?? null;
-        $this->container['parameters'] = $data['parameters'] ?? null;
-        $this->container['subdomain'] = $data['subdomain'] ?? null;
+        $this->container['category'] = isset($data['category']) ? $data['category'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['error_id'] = isset($data['error_id']) ? $data['error_id'] : null;
+        $this->container['input_ref_ids'] = isset($data['input_ref_ids']) ? $data['input_ref_ids'] : null;
+        $this->container['long_message'] = isset($data['long_message']) ? $data['long_message'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['output_ref_ids'] = isset($data['output_ref_ids']) ? $data['output_ref_ids'] : null;
+        $this->container['parameters'] = isset($data['parameters']) ? $data['parameters'] : null;
+        $this->container['subdomain'] = isset($data['subdomain']) ? $data['subdomain'] : null;
     }
 
     /**
@@ -490,7 +490,7 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

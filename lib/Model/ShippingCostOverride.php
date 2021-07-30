@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class ShippingCostOverride implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -199,11 +199,11 @@ class ShippingCostOverride implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['additional_shipping_cost'] = $data['additional_shipping_cost'] ?? null;
-        $this->container['priority'] = $data['priority'] ?? null;
-        $this->container['shipping_cost'] = $data['shipping_cost'] ?? null;
-        $this->container['shipping_service_type'] = $data['shipping_service_type'] ?? null;
-        $this->container['surcharge'] = $data['surcharge'] ?? null;
+        $this->container['additional_shipping_cost'] = isset($data['additional_shipping_cost']) ? $data['additional_shipping_cost'] : null;
+        $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
+        $this->container['shipping_cost'] = isset($data['shipping_cost']) ? $data['shipping_cost'] : null;
+        $this->container['shipping_service_type'] = isset($data['shipping_service_type']) ? $data['shipping_service_type'] : null;
+        $this->container['surcharge'] = isset($data['surcharge']) ? $data['surcharge'] : null;
     }
 
     /**
@@ -370,7 +370,7 @@ class ShippingCostOverride implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

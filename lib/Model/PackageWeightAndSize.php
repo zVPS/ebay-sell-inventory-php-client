@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class PackageWeightAndSize implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class PackageWeightAndSize implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimensions'] = $data['dimensions'] ?? null;
-        $this->container['package_type'] = $data['package_type'] ?? null;
-        $this->container['weight'] = $data['weight'] ?? null;
+        $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
+        $this->container['package_type'] = isset($data['package_type']) ? $data['package_type'] : null;
+        $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class PackageWeightAndSize implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

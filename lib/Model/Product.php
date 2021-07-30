@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class Product implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -234,18 +234,18 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['aspects'] = $data['aspects'] ?? null;
-        $this->container['brand'] = $data['brand'] ?? null;
-        $this->container['description'] = $data['description'] ?? null;
-        $this->container['ean'] = $data['ean'] ?? null;
-        $this->container['epid'] = $data['epid'] ?? null;
-        $this->container['image_urls'] = $data['image_urls'] ?? null;
-        $this->container['isbn'] = $data['isbn'] ?? null;
-        $this->container['mpn'] = $data['mpn'] ?? null;
-        $this->container['subtitle'] = $data['subtitle'] ?? null;
-        $this->container['title'] = $data['title'] ?? null;
-        $this->container['upc'] = $data['upc'] ?? null;
-        $this->container['video_ids'] = $data['video_ids'] ?? null;
+        $this->container['aspects'] = isset($data['aspects']) ? $data['aspects'] : null;
+        $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ean'] = isset($data['ean']) ? $data['ean'] : null;
+        $this->container['epid'] = isset($data['epid']) ? $data['epid'] : null;
+        $this->container['image_urls'] = isset($data['image_urls']) ? $data['image_urls'] : null;
+        $this->container['isbn'] = isset($data['isbn']) ? $data['isbn'] : null;
+        $this->container['mpn'] = isset($data['mpn']) ? $data['mpn'] : null;
+        $this->container['subtitle'] = isset($data['subtitle']) ? $data['subtitle'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['upc'] = isset($data['upc']) ? $data['upc'] : null;
+        $this->container['video_ids'] = isset($data['video_ids']) ? $data['video_ids'] : null;
     }
 
     /**
@@ -580,7 +580,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

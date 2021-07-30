@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class AvailabilityDistribution implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class AvailabilityDistribution implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->container['fulfillment_time'] = $data['fulfillment_time'] ?? null;
-        $this->container['merchant_location_key'] = $data['merchant_location_key'] ?? null;
-        $this->container['quantity'] = $data['quantity'] ?? null;
+        $this->container['fulfillment_time'] = isset($data['fulfillment_time']) ? $data['fulfillment_time'] : null;
+        $this->container['merchant_location_key'] = isset($data['merchant_location_key']) ? $data['merchant_location_key'] : null;
+        $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class AvailabilityDistribution implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class VariesBy implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class VariesBy implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['aspects_image_varies_by'] = $data['aspects_image_varies_by'] ?? null;
-        $this->container['specifications'] = $data['specifications'] ?? null;
+        $this->container['aspects_image_varies_by'] = isset($data['aspects_image_varies_by']) ? $data['aspects_image_varies_by'] : null;
+        $this->container['specifications'] = isset($data['specifications']) ? $data['specifications'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class VariesBy implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

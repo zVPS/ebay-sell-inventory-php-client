@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class Offers implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -209,13 +209,13 @@ class Offers implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['href'] = $data['href'] ?? null;
-        $this->container['limit'] = $data['limit'] ?? null;
-        $this->container['next'] = $data['next'] ?? null;
-        $this->container['offers'] = $data['offers'] ?? null;
-        $this->container['prev'] = $data['prev'] ?? null;
-        $this->container['size'] = $data['size'] ?? null;
-        $this->container['total'] = $data['total'] ?? null;
+        $this->container['href'] = isset($data['href']) ? $data['href'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['next'] = isset($data['next']) ? $data['next'] : null;
+        $this->container['offers'] = isset($data['offers']) ? $data['offers'] : null;
+        $this->container['prev'] = isset($data['prev']) ? $data['prev'] : null;
+        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -430,7 +430,7 @@ class Offers implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

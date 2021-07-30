@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class CompatibleProduct implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -194,10 +194,10 @@ class CompatibleProduct implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['compatibility_properties'] = $data['compatibility_properties'] ?? null;
-        $this->container['notes'] = $data['notes'] ?? null;
-        $this->container['product_family_properties'] = $data['product_family_properties'] ?? null;
-        $this->container['product_identifier'] = $data['product_identifier'] ?? null;
+        $this->container['compatibility_properties'] = isset($data['compatibility_properties']) ? $data['compatibility_properties'] : null;
+        $this->container['notes'] = isset($data['notes']) ? $data['notes'] : null;
+        $this->container['product_family_properties'] = isset($data['product_family_properties']) ? $data['product_family_properties'] : null;
+        $this->container['product_identifier'] = isset($data['product_identifier']) ? $data['product_identifier'] : null;
     }
 
     /**
@@ -340,7 +340,7 @@ class CompatibleProduct implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

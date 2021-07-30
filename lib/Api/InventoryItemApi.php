@@ -90,8 +90,9 @@ class InventoryItemApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
+     * @return void
      */
-    public function setHostIndex($hostIndex): void
+    public function setHostIndex($hostIndex)
     {
         $this->hostIndex = $hostIndex;
     }

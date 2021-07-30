@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class FormatAllocation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class FormatAllocation implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['auction'] = $data['auction'] ?? null;
-        $this->container['fixed_price'] = $data['fixed_price'] ?? null;
+        $this->container['auction'] = isset($data['auction']) ? $data['auction'] : null;
+        $this->container['fixed_price'] = isset($data['fixed_price']) ? $data['fixed_price'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class FormatAllocation implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

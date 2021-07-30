@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class ListingPolicies implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -204,12 +204,12 @@ class ListingPolicies implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['best_offer_terms'] = $data['best_offer_terms'] ?? null;
-        $this->container['e_bay_plus_if_eligible'] = $data['e_bay_plus_if_eligible'] ?? null;
-        $this->container['fulfillment_policy_id'] = $data['fulfillment_policy_id'] ?? null;
-        $this->container['payment_policy_id'] = $data['payment_policy_id'] ?? null;
-        $this->container['return_policy_id'] = $data['return_policy_id'] ?? null;
-        $this->container['shipping_cost_overrides'] = $data['shipping_cost_overrides'] ?? null;
+        $this->container['best_offer_terms'] = isset($data['best_offer_terms']) ? $data['best_offer_terms'] : null;
+        $this->container['e_bay_plus_if_eligible'] = isset($data['e_bay_plus_if_eligible']) ? $data['e_bay_plus_if_eligible'] : null;
+        $this->container['fulfillment_policy_id'] = isset($data['fulfillment_policy_id']) ? $data['fulfillment_policy_id'] : null;
+        $this->container['payment_policy_id'] = isset($data['payment_policy_id']) ? $data['payment_policy_id'] : null;
+        $this->container['return_policy_id'] = isset($data['return_policy_id']) ? $data['return_policy_id'] : null;
+        $this->container['shipping_cost_overrides'] = isset($data['shipping_cost_overrides']) ? $data['shipping_cost_overrides'] : null;
     }
 
     /**
@@ -400,7 +400,7 @@ class ListingPolicies implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

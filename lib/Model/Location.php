@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class Location implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['address'] = $data['address'] ?? null;
-        $this->container['geo_coordinates'] = $data['geo_coordinates'] ?? null;
-        $this->container['location_id'] = $data['location_id'] ?? null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['geo_coordinates'] = isset($data['geo_coordinates']) ? $data['geo_coordinates'] : null;
+        $this->container['location_id'] = isset($data['location_id']) ? $data['location_id'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

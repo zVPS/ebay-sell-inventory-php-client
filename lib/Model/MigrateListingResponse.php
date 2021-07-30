@@ -45,7 +45,7 @@ use \Ebay\Sell\Inventory\ObjectSerializer;
  */
 class MigrateListingResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -209,13 +209,13 @@ class MigrateListingResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = $data['errors'] ?? null;
-        $this->container['inventory_item_group_key'] = $data['inventory_item_group_key'] ?? null;
-        $this->container['inventory_items'] = $data['inventory_items'] ?? null;
-        $this->container['listing_id'] = $data['listing_id'] ?? null;
-        $this->container['marketplace_id'] = $data['marketplace_id'] ?? null;
-        $this->container['status_code'] = $data['status_code'] ?? null;
-        $this->container['warnings'] = $data['warnings'] ?? null;
+        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['inventory_item_group_key'] = isset($data['inventory_item_group_key']) ? $data['inventory_item_group_key'] : null;
+        $this->container['inventory_items'] = isset($data['inventory_items']) ? $data['inventory_items'] : null;
+        $this->container['listing_id'] = isset($data['listing_id']) ? $data['listing_id'] : null;
+        $this->container['marketplace_id'] = isset($data['marketplace_id']) ? $data['marketplace_id'] : null;
+        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
     }
 
     /**
@@ -430,7 +430,7 @@ class MigrateListingResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**
