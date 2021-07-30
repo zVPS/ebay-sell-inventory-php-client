@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Inventory
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace Ebay\Sell\Test\Model;
+namespace Ebay\Sell\Inventory\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description This type is used by the base request payload of the &lt;strong&gt;bulkUpdatePriceQuantity&lt;/strong&gt; call. The &lt;strong&gt;bulkUpdatePriceQuantity&lt;/strong&gt; call allows the seller to update the total &#39;ship-to-home&#39; quantity of one or more inventory items (up to 25) and/or to update the price and/or quantity of one or more specific published offers.
- * @package     Ebay\Sell
+ * @package     Ebay\Sell\Inventory
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

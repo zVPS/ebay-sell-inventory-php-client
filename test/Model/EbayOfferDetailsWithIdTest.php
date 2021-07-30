@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Inventory
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace Ebay\Sell\Test\Model;
+namespace Ebay\Sell\Inventory\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description This type provides details of an offer, and is used by the base request payload of the &lt;strong&gt;updateOffer&lt;/strong&gt; call. Every field that is currently set with the unpublished/published offer must also be passed into the &lt;strong&gt;updateOffer&lt;/strong&gt; call, even those fields whose values are not changing. Note that for published offers, a successful &lt;strong&gt;updateOffer&lt;/strong&gt; call will actually update the active eBay listing with whatever changes were made.
- * @package     Ebay\Sell
+ * @package     Ebay\Sell\Inventory
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

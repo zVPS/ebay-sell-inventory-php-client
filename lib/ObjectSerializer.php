@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Inventory
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Ebay\Sell;
+namespace Ebay\Sell\Inventory;
 
 use Ebay\Sell\Inventory\Model\ModelInterface;
 
@@ -34,7 +34,7 @@ use Ebay\Sell\Inventory\Model\ModelInterface;
  * ObjectSerializer Class Doc Comment
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Inventory
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -229,7 +229,7 @@ class ObjectSerializer
      *
      * @return string
      */
-    public static function serializeCollection($collection, $style, $allowCollectionFormatMulti = false)
+    public static function serializeCollection(array $collection, $style, $allowCollectionFormatMulti = false)
     {
         if ($allowCollectionFormatMulti && ('multi' === $style)) {
             // http_build_query() almost does the job for us. We just
@@ -364,7 +364,7 @@ class ObjectSerializer
             // If a discriminator is defined and points to a valid subclass, use it.
             $discriminator = $class::DISCRIMINATOR;
             if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                $subclass = '\Ebay\Sell\Model\\' . $data->{$discriminator};
+                $subclass = '\Ebay\Sell\Inventory\Model\\' . $data->{$discriminator};
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
                 }

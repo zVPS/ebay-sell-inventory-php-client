@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Inventory
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace Ebay\Sell\Test\Model;
+namespace Ebay\Sell\Inventory\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description This type is used by the &lt;strong&gt;bulkCreateOffer&lt;/strong&gt; response to show the status of each offer that the seller attempted to create with the &lt;strong&gt;bulkCreateOffer&lt;/strong&gt; method. For each offer that is created successfully, the returned &lt;strong&gt;statusCode&lt;/strong&gt; value should be &lt;code&gt;200&lt;/code&gt;, and a unique &lt;strong&gt;offerId&lt;/strong&gt; should be created for each offer. If any issues occur with the creation of any offers, &lt;strong&gt;errors&lt;/strong&gt; and/or &lt;strong&gt;warnings&lt;/strong&gt; containers will be returned.
- * @package     Ebay\Sell
+ * @package     Ebay\Sell\Inventory
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

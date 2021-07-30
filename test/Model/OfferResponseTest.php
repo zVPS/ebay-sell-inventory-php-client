@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Inventory
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace Ebay\Sell\Test\Model;
+namespace Ebay\Sell\Inventory\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description This type is used by the response payload of the &lt;strong&gt;createOffer&lt;/strong&gt; and &lt;strong&gt;updateOffer&lt;/strong&gt; calls. The &lt;strong&gt;offerId&lt;/strong&gt; field contains the unique identifier for the offer if the offer is successfully created by the &lt;strong&gt;createOffer&lt;/strong&gt; call. The &lt;strong&gt;warnings&lt;/strong&gt; field contains any errors and/or warnings that may have been triggered by the call. &lt;p&gt; &lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;strong&gt;offerId&lt;/strong&gt; value is only returned with a successful &lt;strong&gt;createOffer&lt;/strong&gt; call. This field will not be returned in the &lt;strong&gt;updateOffer &lt;/strong&gt; response.&lt;/span&gt;&lt;/p&gt;
- * @package     Ebay\Sell
+ * @package     Ebay\Sell\Inventory
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

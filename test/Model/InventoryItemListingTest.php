@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Inventory
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace Ebay\Sell\Test\Model;
+namespace Ebay\Sell\Inventory\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description This type is used by the &lt;strong&gt;inventoryItems&lt;/strong&gt; container that is returned in the response of the &lt;strong&gt;bulkMigrateListing&lt;/strong&gt; call. Up to five &lt;strong&gt;sku&lt;/strong&gt;/&lt;strong&gt;offerId&lt;/strong&gt; pairs may be returned under the &lt;strong&gt;inventoryItems&lt;/strong&gt; container, dependent on how many eBay listings the seller is attempting to migrate to the inventory model.
- * @package     Ebay\Sell
+ * @package     Ebay\Sell\Inventory
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

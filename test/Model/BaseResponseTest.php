@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Inventory
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace Ebay\Sell\Test\Model;
+namespace Ebay\Sell\Inventory\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description This is the base response of the &lt;strong&gt;createOrReplaceInventoryItem&lt;/strong&gt;, &lt;strong&gt;createOrReplaceInventoryItemGroup&lt;/strong&gt;,  and &lt;strong&gt;createOrReplaceProductCompatibility&lt;/strong&gt;  calls. A response payload will only be returned for these three calls if one or more errors or warnings occur with the call.
- * @package     Ebay\Sell
+ * @package     Ebay\Sell\Inventory
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
